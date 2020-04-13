@@ -1,0 +1,10 @@
+- if last_exports.any?
+  %ul.uk-list.uk-margin-remove
+    - last_exports.each.with_index(1) do |export, index|
+      %li
+        = link_to("#{index}. #{export.filename}", export.path, class: 'uk-text-success')
+        %small
+          = surround '(', ')' do
+            = export.created_at.strftime('%d-%m-%Y %H:%M')
+- else
+  = render 'shared/not_found', text: 'Sorry, no exports found.'

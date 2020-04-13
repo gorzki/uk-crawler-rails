@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  min-height: 100vh;
+  font-family: 'Metamorphous', cursive;
+  background: #e2e4e6;
+}
+
+.uk-text-white {
+  color: #fff;
+}
+
+.uk-text-black {
+  color: #000;
+}
+
+.page-spinner {
+   background: #0000008f;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}

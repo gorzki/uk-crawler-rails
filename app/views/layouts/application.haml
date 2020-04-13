@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title Ulric Knights Crawler
+    = favicon_link_tag 'icon.png'
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/css2?family=Metamorphous&display=swap", :rel => "stylesheet"}/
+  %body
+    .uk-container.uk-flex.uk-flex-between.uk-flex-column
+      .uk-width-1-1.uk-height-1-1
+        .uk-width-1-1
+          .uk-padding-small.uk-padding-remove-horizontal.uk-flex.uk-flex-middle.uk-background-secondary.uk-flex-center.uk-text-white.uk-text-large
+            = image_tag('icon-white.png', width: "45", class: 'uk-margin-right')
+            %p UlricKnights Crawler
+        .uk-width-1-1
+          = yield
+      .uk-width-1-1.uk-background-secondary
+        .uk-padding.uk-text-center
+          .uk-text-medium.uk-text-white
+            xGorzki &copy; 2020

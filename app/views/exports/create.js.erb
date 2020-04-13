@@ -1,0 +1,8 @@
+<% if @service.errors.any? %>
+  <% @service.errors.each do |error| %>
+    Crawler.notify("<%= error %>", 'danger')
+  <% end %>
+<% else %>
+  <% success = "Your request for export #{@service.type} successfully added to queue" %>
+  Crawler.notify("<%= success %>", 'success')
+<% end %>

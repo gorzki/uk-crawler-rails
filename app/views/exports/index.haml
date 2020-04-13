@@ -1,0 +1,54 @@
+= form_tag exports_path, method: :post, remote: true, class: 'js-spinner-form' do
+  .uk-padding-small.uk-position-relative
+    .page-spinner.js-spinner.uk-hidden
+      .loader
+    .uk-width-1-1.uk-margin-small-bottom
+      %b.uk-text-black Credentials
+    .uk-background-default.uk-border-rounded.uk-padding-small
+      .uk-flex
+        .uk-width-auto.uk-margin-right
+          = label_tag :username, 'Username'
+          .uk-inline
+            %span.uk-form-icon{"uk-icon" => "icon: user"}
+            = text_field_tag :username, '', class: 'uk-input', placeholder: 'Your login from page', autocomplete: 'off'
+        .uk-width-auto
+          = label_tag :password, 'Password'
+          .uk-inline
+            %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: lock"}
+            = text_field_tag :password, '', class: 'uk-input uk-autocomplete', placeholder: '123456', autocomplete: 'off'
+    .uk-width-1-1.uk-margin-small-bottom.uk-margin-top
+      %b.uk-text-black Download
+    %ul.uk-list.uk-list-divider.uk-margin-remove.js-options.uk-background-default.uk-border-rounded.uk-padding-small
+      %li
+        .uk-flex.uk-flex-between.uk-flex-middle
+          .uk-flex.uk-flex-middle
+            %span Boards and Forums
+          %div
+            %button.uk-button.uk-button-small.uk-button-danger.js-download.uk-border-rounded{name: :type, value: :boards_and_forums, type: :submit}
+              %span{"uk-icon" => "icon: download"}
+      %li
+        .uk-flex.uk-flex-between.uk-flex-middle
+          .uk-flex.uk-flex-middle
+            %span Topics and Posts
+          %div
+            %button.uk-button.uk-button-small.uk-button-danger.js-download.uk-border-rounded{name: :type, value: :topics_and_posts, type: :submit}
+              %span{"uk-icon" => "icon: download"}
+      %li
+        .uk-flex.uk-flex-between.uk-flex-middle
+          .uk-flex.uk-flex-middle
+            %span Users
+          %div
+            %button.uk-button.uk-button-small.uk-button-danger.js-download.uk-border-rounded{name: :type, value: :users, type: :submit}
+              %span{"uk-icon" => "icon: download"}
+      %li
+        .uk-flex.uk-flex-between.uk-flex-middle
+          .uk-flex.uk-flex-middle
+            %span Gallery
+          %div
+            %button.uk-button.uk-button-small.uk-button-danger.js-download.uk-border-rounded{name: :type, value: :gallery, type: :submit}
+              %span{"uk-icon" => "icon: download"}
+    .uk-margin-top
+      .uk-width-1-1.uk-margin-small-bottom
+        %b.uk-text-black Last exports
+      #js-last-exports.uk-background-default.uk-border-rounded.uk-padding-small
+        = render 'exports/index/last_exports', last_exports: @last_exports

@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'rack-cors', :require => 'rack/cors'
 gem 'mechanize'
+gem 'haml-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -53,6 +54,10 @@ group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-rails'
+  gem 'jquery-rails'
+  gem 'redis'
+  gem 'sidekiq', '< 7'
+  gem 'hiredis'
 end
 
 group :test do

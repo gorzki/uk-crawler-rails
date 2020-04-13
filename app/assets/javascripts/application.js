@@ -13,4 +13,24 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require uikit.min
+//= require jquery
 //= require_tree .
+var Crawler = {
+  notify: function(msg, type){
+    UIkit.notification({
+      message: msg,
+      status: type,
+      timeout: 2000,
+      pos: 'top-center'
+    });
+  }
+}
+$(document).on('turbolinks:load', function(){
+  jQuery(document).on("ajax:beforeSend", '.js-spinner-form', function () {
+    $(".js-spinner").removeClass("uk-hidden");
+  });
+  jQuery(document).on("ajax:complete", '.js-spinner-form', function () {
+    $(".js-spinner").addClass("uk-hidden");
+  });
+})
