@@ -27,7 +27,7 @@ class Crawler
   def successfully_logged?
     login
     user = @agent.cookies.find { |cookie| cookie.name == 'punbb_cookie' }
-    @errors.push("Invalid credentials, can't log!") and return false unless user
+    @errors.push("Invalid credentials, can't log in!") and return false unless user
     true
   end
 
