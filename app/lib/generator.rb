@@ -31,10 +31,10 @@ class Generator
 
   def boards_and_forums
     create_csv(filename) do |csv|
-      csv << ['id', 'forum_name', 'board_name']
-      @collection.each do |key, value|
-        value.each do |forum|
-          csv << [forum[:id], forum[:name], key]
+      csv << ['board_title', 'forum_id', 'forum_title']
+      @collection.each do |board_title, forums|
+        forums.each do |forum|
+          csv << [board_title, *forum.values]
         end
       end
     end
@@ -42,16 +42,18 @@ class Generator
 
   def topics_and_posts
     create_csv(filename) do |csv|
-      csv << @collection.first.keys
-      @collection.each do |row|
-        csv << row.values
+      csv << ['forum_id', *Crawler::POST_KEYS]
+      @collection.each do |forum_id, posts|
+        posts.each do |post|
+          csv << [forum_id, *post.values]
+        end
       end
     end
   end
 
   def users
     create_csv(filename) do |csv|
-      csv << @collection.first.keys.map{ |key| key.gsub(/[^\s\p{L}]/i, '').strip }
+      csv << Crawler::USER_KEYS
       @collection.each do |row|
         csv << row.values
       end
@@ -61,6 +63,12 @@ class Generator
 
   def gallery
     create_csv(filename) do |csv|
+      csv << ['gallery_id', 'gallery_title', *Crawler::PHOTO_KEYS]
+      @collection.each do |gallery, photos|
+        photos.each do |row|
+          csv << [gallery.id, gallery.title, *row.values]
+        end
+      end
     end
   end
 

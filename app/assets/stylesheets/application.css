@@ -16,8 +16,12 @@
 
 body {
   min-height: 100vh;
-  font-family: 'Metamorphous', cursive;
+  font-family: 'Montserrat', sans-serif;
   background: #e2e4e6;
+}
+
+.ulric-knights-font {
+  font-family: 'Metamorphous', cursive;
 }
 
 .uk-text-white {

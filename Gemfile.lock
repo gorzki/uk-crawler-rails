@@ -84,6 +84,8 @@ GEM
     debug_inspector (0.0.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    down (5.1.1)
+      addressable (~> 2.5)
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -268,6 +270,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  down
   haml-rails
   hiredis
   jbuilder (~> 2.5)

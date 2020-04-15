@@ -7,17 +7,19 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %link{:href => "https://fonts.googleapis.com/css2?family=Metamorphous&display=swap", :rel => "stylesheet"}/
+    %link{href: "https://fonts.googleapis.com/css2?family=Metamorphous&display=swap", rel: "stylesheet"}/
+    %link{href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap", rel: "stylesheet"}/
   %body
     .uk-container.uk-flex.uk-flex-between.uk-flex-column
       .uk-width-1-1.uk-height-1-1
         .uk-width-1-1
           .uk-padding-small.uk-padding-remove-horizontal.uk-flex.uk-flex-middle.uk-background-secondary.uk-flex-center.uk-text-white.uk-text-large
             = image_tag('icon-white.png', width: "45", class: 'uk-margin-right')
-            %p UlricKnights Crawler
+            %p.ulric-knights-font UlricKnights Crawler
         .uk-width-1-1
           = yield
       .uk-width-1-1.uk-background-secondary
         .uk-padding.uk-text-center
-          .uk-text-medium.uk-text-white
-            xGorzki &copy; 2020
+          .uk-text-medium.uk-text-white.ulric-knights-font.uk-display-inline
+            = link_to 'xGorzki', 'https://www.linkedin.com/in/rafa%C5%82-ro%C5%BAniakowski-42aa95110/', target: :_blank, class: 'uk-link-text'
+            &copy; 2020

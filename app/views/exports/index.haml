@@ -7,15 +7,15 @@
     .uk-background-default.uk-border-rounded.uk-padding-small
       .uk-flex
         .uk-width-auto.uk-margin-right
-          = label_tag :username, 'Username'
+          = label_tag :username, 'Username', class: 'uk-margin-small-right'
           .uk-inline
             %span.uk-form-icon{"uk-icon" => "icon: user"}
-            = text_field_tag :username, '', class: 'uk-input', placeholder: 'Your login from page', autocomplete: 'off'
+            = text_field_tag :username, '', class: 'uk-input', placeholder: 'Type your login here', autocomplete: 'off'
         .uk-width-auto
-          = label_tag :password, 'Password'
+          = label_tag :password, 'Password', class: 'uk-margin-small-right'
           .uk-inline
-            %span.uk-form-icon.uk-form-icon-flip{"uk-icon" => "icon: lock"}
-            = text_field_tag :password, '', class: 'uk-input uk-autocomplete', placeholder: '123456', autocomplete: 'off'
+            %span.uk-form-icon{"uk-icon" => "icon: lock"}
+            = password_field_tag :password, '', class: 'uk-input', placeholder: 'Type your password here', autocomplete: 'off'
     .uk-width-1-1.uk-margin-small-bottom.uk-margin-top
       %b.uk-text-black Download
     %ul.uk-list.uk-list-divider.uk-margin-remove.js-options.uk-background-default.uk-border-rounded.uk-padding-small
