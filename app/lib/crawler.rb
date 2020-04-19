@@ -6,7 +6,7 @@ class Crawler
   FORUM_KEYS = %i[id title].freeze
   POST_KEYS = %i[id title msg parent_id created_by created_at].freeze
   PHOTO_KEYS = %i[id title description created_by filename file comments].freeze
-  USER_KEYS = %i[id login rank name gender location page birthdate created_at].freeze
+  USER_KEYS = %i[id email login rank name gender location page birthdate created_at].freeze
   PostStruct = Struct.new(*POST_KEYS, keyword_init: true)
   ForumStruct = Struct.new(*FORUM_KEYS, keyword_init: true)
   PhotoStruct = Struct.new(*PHOTO_KEYS, keyword_init: true)
@@ -91,8 +91,10 @@ class Crawler
   def fetch_user(link)
     @page = link.click
     id = parse_id(link.href)
+    email = @page.parser.css('.infldset input[name=req_email]').attr('value').value
+    @page = find_link("Zobacz swój profil").click
     row = @page.parser.css('dl dd').map(&:text)
-    UserStruct.new(id: id, login: row[0], rank: row[1], name: row[2], gender: row[3], location: row[4], page: row[5], birthdate: row[6], created_at: row.last)
+    UserStruct.new(id: id, email: email, login: row[0], rank: row[1], name: row[2], gender: row[3], location: row[4], page: row[5], birthdate: row[6], created_at: row.last)
   end
 
   def fetch_boards_and_forums(link)
